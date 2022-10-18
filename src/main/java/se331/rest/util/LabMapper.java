@@ -20,4 +20,5 @@ public interface LabMapper {
     OrganizerDTO getOrganizerDTO(Organizer organizer);
 
     List<OrganizerDTO> getOrganizerDTO(List<Organizer> organizers);
+
 }
