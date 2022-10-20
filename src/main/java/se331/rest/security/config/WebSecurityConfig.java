@@ -48,9 +48,11 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh").permitAll()
-//                .antMatchers(HttpMethod.GET,"/event").permitAll()
+                .antMatchers(HttpMethod.GET,"/event").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/event").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/organizers").permitAll()
+                .antMatchers(HttpMethod.POST,"/organizers").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);

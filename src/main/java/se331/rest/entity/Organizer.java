@@ -23,5 +23,7 @@ public class Organizer {
     List<Event> ownEvents = new ArrayList<>();
     @OneToOne
     User user;
+    @ElementCollection
+    List<String> imageUrls;
 }
 
